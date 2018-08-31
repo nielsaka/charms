@@ -1,0 +1,13 @@
+Package: charms
+Type: Package
+Title: Conjure the spirit of R with these spells.
+Version: 0.9.0
+Date: 2018-08-27
+Authors@R: person("Niels", "Aka", email = "nielsaka@outlook.com",
+  role = c("aut", "cre"))
+Description: Miscellaneous utility functions collected over time.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
