@@ -1,0 +1,8 @@
+A collection of miscellaneous utility functions for R.
+
+install with `devtools::install_github("nielsaka/charms")`
+
+Contents:
+
+* silence all output with `silencio()` and revoke with `sonorus`
+* attach packages, installing them if necessary, with `accio()`
