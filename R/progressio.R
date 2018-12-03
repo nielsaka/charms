@@ -82,6 +82,38 @@ progressio <- function(iterations, title = "Progress") {
 #' Sys.sleep(3)
 #' replicate(reps, shout())
 #'
+#' cl <- parallel::makeCluster(2)
+#' fun <- function(x) {Sys.sleep(1); x}
+#' system.time(
+#'   parallel::parLapply(cl, 1:10, fun)
+#' )
+#'
+#' fun <- prgr(fun, iterations = 10)
+#' system.time(
+#'   parallel::clusterCall(cl, fun)
+#' )
+#'
+#' doParallel::registerDoParallel(cl)
+#'
+#' foreach::`%do%`(foreach::foreach(1:10, .packages = "tcltk"), fun())
+#
+# Parallel execution and progress bar not working!
+# some food for thought
+
+# http://lists.r-forge.r-project.org/pipermail/vegan-devel/2013-February/000291.html
+# https://blog.revolutionanalytics.com/2015/03/creating-progress-bar-with-foreach-parallel-processing.html
+# http://r.789695.n4.nabble.com/best-practice-for-packages-using-mclapply-to-avoid-tcltk-td4657381.html
+# http://r.789695.n4.nabble.com/weird-bug-with-parallel-RSQlite-and-tcltk-td4654316.html
+#
+
+# avoid using prgr in parallel, instead doSNOW
+# https://stackoverflow.com/questions/28222236/do-parallel-combine-progress-bar-and-process
+#
+#
+#'
+#' foreach::foreach()
+#'
+#' @export
 prgr <- function(fun, iterations) {
   force(fun)
   title <- deparse(substitute(fun))
